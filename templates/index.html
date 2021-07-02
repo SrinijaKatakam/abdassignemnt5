@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+        h1 {
+          background-color: aqua;
+          border-style: double;
+        }
+        h3 {
+            background-color: aqua;
+          
+          border-style: ridge;
+        }
+        div {
+          border-style: double;
+        }
+        p {
+          border-style: ridge;
+        }
+        </style>
     <title>Assignment 5</title>
 </head>
 <body>
@@ -9,10 +26,10 @@
     <h3>1001861512</h3>
 </div>
 <div>
-    <form action="{{url_for('search_word')}}" enctype=multipart/form-data method="POST" style="width:30%;">
-        <label for="words">Enter a word to search the books</label>
-        <input type="text" id="words" name="words">
-        <a href="/searchword"><input type="submit" value="Find"></a>
+    <form action="{{url_for('words_file')}}" enctype=multipart/form-data method="POST" style="width:30%;">
+        <label for="search_word">Enter a word to search in books</label>
+        <input type="text" id="search_word" name="search_word">
+        <a href="/wordsfile"><input type="submit" value="Find"></a>
     </form>
 </div>
 </body>
