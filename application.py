@@ -1,6 +1,6 @@
-import os
-from flask import Flask, render_template, request, url_for
 
+from flask import Flask, render_template, request, url_for
+import os
 
 
 application = Flask(__name__)
@@ -63,7 +63,8 @@ def words_file():
 
         for values in wordsin3:
             word3.append(values[2:-1])
-		if word_to_search in word3:
+		
+        if word_to_search in word3:
             movie_title3 = "CandideEnedit.txt"
             files.append(movie_title3)
 
