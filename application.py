@@ -52,7 +52,7 @@ def words_file():
     counts6 = 0
 
     if request.method == 'POST':
-        query_word = request.form.get('words')
+        query_word = request.form.get('search_word')
 
         with open(words1, 'rb') as fileinput:
             for line in fileinput:
