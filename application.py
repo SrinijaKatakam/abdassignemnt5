@@ -7,16 +7,13 @@ import string
 application = Flask(__name__)
 
 
-base_dir = os.path.abspath(os.path.dirname(__file__))
-wordsfile1 = os.path.join(base_dir, 'static/AliceCleaneredit.txt')
-wordsfile2 = os.path.join(base_dir, 'static/AliceInWonderlandedit.txt')
-wordsfile3 = os.path.join(base_dir, 'static/CandideEnedit.txt')
-wordsfile4 = os.path.join(base_dir, 'static/CandideFredit.txt')
-wordsfile5 = os.path.join(base_dir, 'static/CandideEn.txt')
-wordsfile6 = os.path.join(base_dir, 'static/CandideFeredit.txt')
-wordsfile7 = os.path.join(base_dir, 'static/DonQuijote.txt')
-wordsfile8 = os.path.join(base_dir, 'static/Shakespare.txt')
-
+basedir = os.path.abspath(os.path.dirname(__file__))
+words1 = os.path.join(basedir, 'static/AliceCleaneredit.txt')
+words2 = os.path.join(basedir, 'static/AliceInWonderlandedit.txt')
+words3 = os.path.join(basedir, 'static/CandideEnedit.txt')
+words4 = os.path.join(basedir, 'static/CandideFredit.txt')
+words5 = os.path.join(basedir, 'static/DonQuijote.txt')
+words6 = os.path.join(basedir, 'static/Shakespeare.txt')
 
 @application.route('/', methods=['GET', 'POST'])
 def index():
