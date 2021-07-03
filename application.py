@@ -4,7 +4,7 @@ import os
 import string
 
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 
 base_dir = os.path.abspath(os.path.dirname(__file__))
@@ -18,12 +18,12 @@ wordsfile7 = os.path.join(base_dir, 'static/DonQuijote.txt')
 wordsfile8 = os.path.join(base_dir, 'static/Shakespare.txt')
 
 
-@app.route('/', methods=['GET', 'POST'])
+@application.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
 
 
-@app.route('/wordsfile', methods=['GET', 'POST'])
+@application.route('/wordsfile', methods=['GET', 'POST'])
 def words_file():
     wordsin1 = []
     wordsin2 = []
@@ -144,7 +144,7 @@ def words_file():
 
     return render_template("words_search.html", file = files)
 
-@app.route('/cleanFile', methods=['GET', 'POST'])
+@application.route('/cleanFile', methods=['GET', 'POST'])
 def clean_file():
     stopwrds = []
     files = ['static/AliceInWonderland.txt', 'static/CandideFr.txt','static/CandideEn.txt', 'static/DonQuijote.txt', 'static/Shakespeare.txt','static/AliceCleaner.txt']
@@ -178,4 +178,4 @@ def clean_file():
 
 
 if __name__ == '__main__':
-    app.run()
+    application.run()
