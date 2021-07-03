@@ -1,6 +1,7 @@
 
 from flask import Flask, render_template, request, url_for
 import os
+import string
 
 
 application = Flask(__name__)
@@ -11,6 +12,10 @@ wordsfile1 = os.path.join(base_dir, 'static/AliceCleaneredit.txt')
 wordsfile2 = os.path.join(base_dir, 'static/AliceInWonderlandedit.txt')
 wordsfile3 = os.path.join(base_dir, 'static/CandideEnedit.txt')
 wordsfile4 = os.path.join(base_dir, 'static/CandideFredit.txt')
+wordsfile5 = os.path.join(base_dir, 'static/CandideEn.txt')
+wordsfile6 = os.path.join(base_dir, 'static/CandideFeredit.txt')
+wordsfile7 = os.path.join(base_dir, 'static/DonQuijote.txt')
+wordsfile8 = os.path.join(base_dir, 'static/Shakespare.txt')
 
 
 @application.route('/', methods=['GET', 'POST'])
@@ -24,11 +29,19 @@ def words_file():
     wordsin2 = []
     wordsin3 = []
     wordsin4 = []
+    wordsin5 = []
+    wordsin6 = []
+    wordsin7 = []
+    wordsin8 = []
     files = []
     word1 = []
     word2 = []
     word3 = []
     word4 = []
+    word5 = []
+    word6 = []
+    word7 = []
+    word8 = []
 
     if request.method == 'POST':
         word_to_search = request.form.get('search_word')
@@ -80,7 +93,94 @@ def words_file():
             movie_title4 = "CandideFredit.txt"
             files.append(movie_title4)
 
+        with open(wordsfile5, 'rb') as fileinput:
+            for line in fileinput:
+                for words in line.split():
+                    wordsin5.append(str(words))
+
+        for values in wordsin5:
+            word5.append(values[2:-1])
+
+        if word_to_search in word5:
+            movie_title5 = "CandideEn.txt"
+            files.append(movie_title5)
+
+        with open(wordsfile6, 'rb') as fileinput:
+            for line in fileinput:
+                for words in line.split():
+                    wordsin6.append(str(words))
+
+        for values in wordsin6:
+            word6.append(values[2:-1])
+
+        if word_to_search in word6:
+            movie_title6 = "CandideFeredit.txt"
+            files.append(movie_title6)
+
+        with open(wordsfile7, 'rb') as fileinput:
+            for line in fileinput:
+                for words in line.split():
+                    wordsin7.append(str(words))
+
+        for values in wordsin7:
+            word7.append(values[2:-1])
+
+        if word_to_search in word7:
+            movie_title7 = "DonQuijote.txt"
+            files.append(movie_title7)
+
+        
+        with open(wordsfile8, 'rb') as fileinput:
+            for line in fileinput:
+                for words in line.split():
+                    wordsin8.append(str(words))
+
+        for values in wordsin8:
+            word8.append(values[2:-1])
+
+        if word_to_search in word8:
+            movie_title8 = "Shakespare.txt"
+            files.append(movie_title8)
+
     return render_template("words_search.html", file = files)
+
+@application.route('/cleanFile', methods=['GET', 'POST'])
+def clean_file():
+    stop_words = []
+    files = ['static/AliceInWonderland.txt', 'static/AliceCleaner.txt', 'static/CandideEn.txt', 'static/CandideFr.txt', 'static/DonQuijote.txt', 'static/Shakespeare.txt']
+    with open('static/stopwords.txt', 'rb') as fileinput:
+        for line in fileinput:
+            for words in line.split():
+                stop_words.append(str(words)[2:-1])
+
+    print(stop_words)
+
+    for filename in files:
+        word = []
+        with open(filename, 'r', encoding="utf-8-sig") as fileinput:
+            for line in fileinput:
+                for words in line.split():
+                    word.append(words.lower())
+
+        text = " ".join(word)
+        finaltext = []
+        text_tokens = text
+        print(text_tokens)
+        for word in text_tokens.split():
+            if word not in stop_words:
+                finaltext.append(word)
+                # print("working")
+
+        finaltext = [''.join(c for c in s if c not in string.punctuation) for s in finaltext]
+        finaltext = list(filter(None, finaltext))
+
+        finaltext = ' '.join(finaltext)
+        print(finaltext)
+        data = filename[:-4] + "edit.txt"
+        print(data)
+        with open(data, "w") as output:
+            output.write(str(finaltext))
+    return render_template('clean_data.html')
 
 
 if __name__ == '__main__':

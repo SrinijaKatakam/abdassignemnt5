@@ -26,6 +26,14 @@
     <h3>1001861512</h3>
 </div>
 <div>
+  <form action="{{url_for('clean_file')}}" enctype=multipart/form-data method="POST" style="width:30%;">
+    <p>
+       Clean files to remove punctuation, remove stop words and to lower case letters
+    </p>
+    <a href="/cleanFile"><input type="submit" value="Clean Files"></a>
+</form>
+</div>
+<div>
     <form action="{{url_for('words_file')}}" enctype=multipart/form-data method="POST" style="width:30%;">
         <label for="search_word">Enter a word to search in books</label>
         <input type="text" id="search_word" name="search_word">
