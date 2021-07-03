@@ -25,124 +25,182 @@ def index():
 
 @application.route('/wordsfile', methods=['GET', 'POST'])
 def words_file():
-    wordsin1 = []
-    wordsin2 = []
-    wordsin3 = []
-    wordsin4 = []
-    wordsin5 = []
-    wordsin6 = []
-    wordsin7 = []
-    wordsin8 = []
-    files = []
     word1 = []
     word2 = []
     word3 = []
     word4 = []
     word5 = []
     word6 = []
-    word7 = []
-    word8 = []
+    files = []
+    line_num = []
+    line_data = []
+    wordss1 = []
+    wordss2 = []
+    wordss3 = []
+    wordss4 = []
+    wordss5 = []
+    wordss6 = []
+    count1 = 0
+    count2 = 0
+    count3 = 0
+    count4 = 0
+    count5 = 0
+    count6 = 0
+
+    counts1 = 0
+    counts2 = 0
+    counts3 = 0
+    counts4 = 0
+    counts5 = 0
+    counts6 = 0
 
     if request.method == 'POST':
-        word_to_search = request.form.get('search_word')
+        query_word = request.form.get('words')
 
-        with open(wordsfile1, 'rb') as fileinput:
+        with open(words1, 'rb') as fileinput:
             for line in fileinput:
                 for words in line.split():
-                    wordsin1.append(str(words))
-        for values in wordsin1:
-            word1.append(values[2:-1])
+                    word1.append(str(words))
+        for values in word1:
+            wordss1.append(values[2:-1])
 
-        if word_to_search in word1:
+
+        if query_word in wordss1:
             movie_title1 = "AliceCleaneredit.txt"
             files.append(movie_title1)
 
-        with open(wordsfile2, 'rb') as fileinput:
+            with open(words1, 'rb') as filesinput:
+                for line in filesinput:
+                    for words in line.split():
+                        if query_word == str(words)[2:-1]:
+                            counts1 = count1
+                            break
+                        else:
+                            count1 = count1 + 1
+                    break
+                line_num.append(counts1)
+
+        with open(words2, 'rb') as fileinput:
             for line in fileinput:
                 for words in line.split():
-                    wordsin2.append(str(words))
+                    word2.append(str(words))
 
-        for values in wordsin2:
-            word2.append(values[2:-1])
+        for values in word2:
+            wordss2.append(values[2:-1])
 
-        if word_to_search in word2:
+
+        if query_word in wordss2:
             movie_title2 = "AliceInWonderlandedit.txt"
             files.append(movie_title2)
 
-        with open(wordsfile3, 'rb') as fileinput:
+            with open(words2, 'rb') as filesinput:
+                for line in filesinput:
+                    for words in line.split():
+                        if query_word == str(words)[2:-1]:
+                            counts2 = count2
+                            break
+                        else:
+                            count2 = count2 + 1
+                    break
+                line_num.append(counts2)
+
+        with open(words3, 'rb') as fileinput:
             for line in fileinput:
                 for words in line.split():
-                    wordsin3.append(str(words))
+                    word3.append(str(words))
 
-        for values in wordsin3:
-            word3.append(values[2:-1])
-		
-        if word_to_search in word3:
+        for values in word3:
+            wordss3.append(values[2:-1])
+
+
+        if query_word in wordss3:
             movie_title3 = "CandideEnedit.txt"
             files.append(movie_title3)
 
-        with open(wordsfile4, 'rb') as fileinput:
+            with open(words3, 'rb') as filesinput:
+                for line in filesinput:
+                    for words in line.split():
+                        if query_word == str(words)[2:-1]:
+                            counts3 = count3
+                            break
+                        else:
+                            count3 = count3 + 1
+                    break
+                line_num.append(counts3)
+
+        with open(words4, 'rb') as fileinput:
             for line in fileinput:
                 for words in line.split():
-                    wordsin4.append(str(words))
+                    word4.append(str(words))
 
-        for values in wordsin4:
-            word4.append(values[2:-1])
+        for values in word4:
+            wordss4.append(values[2:-1])
 
-        if word_to_search in word4:
+
+        if query_word in wordss4:
             movie_title4 = "CandideFredit.txt"
             files.append(movie_title4)
 
-        with open(wordsfile5, 'rb') as fileinput:
+            with open(words4, 'rb') as filesinput:
+                for line in filesinput:
+                    for words in line.split():
+                        if query_word == str(words)[2:-1]:
+                            counts4 = count4
+                            break
+                        else:
+                            count4 = count4 + 1
+                    break
+                line_num.append(counts4)
+
+        with open(words5, 'rb') as fileinput:
             for line in fileinput:
                 for words in line.split():
-                    wordsin5.append(str(words))
+                    word5.append(str(words))
 
-        for values in wordsin5:
-            word5.append(values[2:-1])
+        for values in word5:
+            wordss5.append(values[2:-1])
 
-        if word_to_search in word5:
-            movie_title5 = "CandideEn.txt"
+
+        if query_word in wordss5:
+            movie_title5 = "AliceInWonderlandedit.txt"
             files.append(movie_title5)
 
-        with open(wordsfile6, 'rb') as fileinput:
+            with open(words5, 'rb') as filesinput:
+                for line in filesinput:
+                    for words in line.split():
+                        if query_word == str(words)[2:-1]:
+                            counts5 = count5
+                            break
+                        else:
+                            count5 = count5 + 1
+                    break
+                line_num.append(counts5)
+
+        with open(words6, 'rb') as fileinput:
             for line in fileinput:
                 for words in line.split():
-                    wordsin6.append(str(words))
+                    word6.append(str(words))
 
-        for values in wordsin6:
-            word6.append(values[2:-1])
+        for values in word6:
+            wordss6.append(values[2:-1])
 
-        if word_to_search in word6:
-            movie_title6 = "CandideFeredit.txt"
+
+        if query_word in wordss6:
+            movie_title6 = "AliceInWonderlandedit.txt"
             files.append(movie_title6)
 
-        with open(wordsfile7, 'rb') as fileinput:
-            for line in fileinput:
-                for words in line.split():
-                    wordsin7.append(str(words))
+            with open(words6, 'rb') as filesinput:
+                for line in filesinput:
+                    for words in line.split():
+                        if query_word == str(words)[2:-1]:
+                            counts6 = count6
+                            break
+                        else:
+                            count6 = count6 + 1
+                    break
+                line_num.append(counts6)
 
-        for values in wordsin7:
-            word7.append(values[2:-1])
-
-        if word_to_search in word7:
-            movie_title7 = "DonQuijote.txt"
-            files.append(movie_title7)
-
-        
-        with open(wordsfile8, 'rb') as fileinput:
-            for line in fileinput:
-                for words in line.split():
-                    wordsin8.append(str(words))
-
-        for values in wordsin8:
-            word8.append(values[2:-1])
-
-        if word_to_search in word8:
-            movie_title8 = "Shakespare.txt"
-            files.append(movie_title8)
-
-    return render_template("words_search.html", file = files)
+    return render_template("words_search.html", file = files, lines = line_num)
 
 @application.route('/cleanFile', methods=['GET', 'POST'])
 def clean_file():

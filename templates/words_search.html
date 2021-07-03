@@ -21,14 +21,19 @@
     <h3>1001861512</h3>
 </div>
 <div>
-    <p>
-        <h3>
-        The given word is found in: <br><br>
-        {% for values in file %}
-            {{values}}<br><br>
-        {% endfor %}
-    </h3>
-    </p>
+  <p>
+    Word found in files<br><br>
+    {% for values in file %}
+        {{values}}<br><br>
+    {% endfor %}
+</p>
+
+<p>
+    Word Lines:<br><br>
+    {% for value in lines %}
+        {{value}}<br><br>
+    {% endfor %}
+</p>
 </div>
 </body>
 </html>
